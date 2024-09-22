@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "cClwwygkXjmVvArEQ6VvJLv34ufw9ETzd2rYRxWUY1M=",
+  "Source": "ContactDeleteService",
+  "BasePath": "_content/ContactDeleteService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

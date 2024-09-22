@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "0SD3S6K80v0EnZSLWj9y+4NFp7EMYYdDr97oUj1OFoY=",
+  "Source": "ContactQueryService",
+  "BasePath": "_content/ContactQueryService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

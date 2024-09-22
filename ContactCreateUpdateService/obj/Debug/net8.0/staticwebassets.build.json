@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "z7uRvAdfsbPfqIvHX1pIev8T9UNtsg1ltw2yVpyNMg8=",
+  "Source": "ContactCreateUpdateService",
+  "BasePath": "_content/ContactCreateUpdateService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

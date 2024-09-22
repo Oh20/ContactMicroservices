@@ -1,0 +1,31 @@
+﻿version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"  # Porta do RabbitMQ
+      - "15672:15672"  # Porta da interface de gerenciamento do RabbitMQ
+    networks:
+      - app-network
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+
+  dbconsumer:
+    build: ./
+    container_name: dbconsumer
+    depends_on:
+      - rabbitmq
+    networks:
+      - app-network
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=user
+      - RABBITMQ_PASSWORD=password
+
+networks:
+  app-network:
+    driver: bridge

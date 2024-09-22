@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vDn2WrxyMC6Tv4duWndNm6rhsNpHGwN/lArlQWIKvxc=",
+  "Source": "DB_Consumer",
+  "BasePath": "_content/DB_Consumer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
