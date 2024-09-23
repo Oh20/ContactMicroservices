@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ContactMicroservices.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07b4bad162d3a714071e22c360453231a75d80b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ContactMicroservices.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ContactMicroservices.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -36,7 +36,7 @@ app.MapGet("/contacts/{id}", async (int id, AppDbContext dbContext) =>
     var contact = await dbContext.Contacts.FindAsync(id);
     if (contact == null)
     {
-        return Results.NotFound("Contact not found");
+        return Results.NotFound("Contato não localizado");
     }
     return Results.Ok(contact);
 });
