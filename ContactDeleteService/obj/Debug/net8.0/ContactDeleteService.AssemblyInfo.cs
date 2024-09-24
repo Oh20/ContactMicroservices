@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ContactDeleteService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40591404bb683e33fc0c2d3ab39c3c6cc3f69805")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d48680f3b749c801617b33b83714d8e0f8d87433")]
 [assembly: System.Reflection.AssemblyProductAttribute("ContactDeleteService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ContactDeleteService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

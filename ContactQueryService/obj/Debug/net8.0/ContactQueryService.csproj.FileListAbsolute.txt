@@ -5,7 +5,6 @@ C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\n
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\net8.0\ContactQueryService.runtimeconfig.json
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\net8.0\ContactQueryService.dll
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\net8.0\ContactQueryService.pdb
-C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\net8.0\ContactModels.dll
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\net8.0\RabbitMQ.Client.dll

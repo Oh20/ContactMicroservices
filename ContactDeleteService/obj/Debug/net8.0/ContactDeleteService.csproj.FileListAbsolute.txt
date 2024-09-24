@@ -5,7 +5,6 @@ C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\net8.0\ContactDeleteService.runtimeconfig.json
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\net8.0\ContactDeleteService.dll
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\net8.0\ContactDeleteService.pdb
-C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\net8.0\ContactModels.dll
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\net8.0\RabbitMQ.Client.dll
