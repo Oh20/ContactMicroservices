@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,10 +21,20 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapPost("/contacts", ([FromBody] ContactDto contact) =>
+app.MapPost("/contacts", async ([FromBody] ContactDto contact, HttpContext httpContext) =>
 {
+    // Validação de modelo
+    var validationContext = new ValidationContext(contact, null, null);
+    var validationResults = new List<ValidationResult>();
+
+    if (!Validator.TryValidateObject(contact, validationContext, validationResults, true))
+    {
+        var errors = validationResults.Select(v => v.ErrorMessage).ToList();
+        return Results.BadRequest(new { Errors = errors });
+    }
+
     // Configuração do RabbitMQ
-    var factory = new ConnectionFactory() { HostName = "localhost" }; // Substitua pelo hostname do seu RabbitMQ
+    var factory = new ConnectionFactory() { HostName = "localhost" };
     using var connection = factory.CreateConnection();
     using var channel = connection.CreateModel();
 
@@ -44,7 +55,7 @@ app.MapPost("/contacts", ([FromBody] ContactDto contact) =>
                          basicProperties: null,
                          body: body);
 
-    return Results.Ok("Contact created/updated and sent to the queue");
+    return Results.Ok("Contato direcionado à fila de Criação");
 });
 
 app.UseHttpsRedirection();
@@ -58,7 +69,15 @@ app.Run();
 // DTO simples para o contato
 public class ContactDto
 {
-    public string Name { get; set; }
-    public string Phone { get; set; }
+    [Required(ErrorMessage = "Nome é obrigatório")]
+    [StringLength(100, MinimumLength = 3, ErrorMessage = "Nome deve ter entre 3 e 100 caracteres")]
+    public string Nome { get; set; }
+
+    [Required(ErrorMessage = "Telefone é obrigatório")]
+    [Phone(ErrorMessage = "Formato de telefone inválido")]
+    public string Telefone { get; set; }
+
+    [Required(ErrorMessage = "Email é obrigatório")]
+    [EmailAddress(ErrorMessage = "Formato de email inválido")]
     public string Email { get; set; }
 }

@@ -33,3 +33,6 @@ C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\obj\Debug\
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\ContactDeleteService.pdb
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\ContactDeleteService.genruntimeconfig.cache
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\ref\ContactDeleteService.dll
+C:\Projeto\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\ContactDeleteService.dll
+C:\Projeto\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\refint\ContactDeleteService.dll
+C:\Projeto\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\ContactDeleteService.pdb

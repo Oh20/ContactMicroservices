@@ -2,6 +2,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,7 +43,6 @@ channel.QueueDeclare(queue: "contact_queue",
 
 var consumer = new EventingBasicConsumer(channel);
 
-// Consumir as mensagens da fila
 consumer.Received += async (model, ea) =>
 {
     var body = ea.Body.ToArray();
@@ -55,16 +55,36 @@ consumer.Received += async (model, ea) =>
 
     if (contactDto != null)
     {
+        // Validar manualmente as Data Annotations
+        var validationContext = new ValidationContext(contactDto);
+        var validationResults = new List<ValidationResult>();
+
+        bool isValid = Validator.TryValidateObject(contactDto, validationContext, validationResults, true);
+
+        if (!isValid)
+        {
+            foreach (var validationResult in validationResults)
+            {
+                Console.WriteLine($"Validation failed: {validationResult.ErrorMessage}");
+            }
+            return; // Se falhar, não salvar no banco
+        }
+
         using var scope = app.Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
         // Mapear o DTO para o modelo Contact
-        var contact = new Contact
+        var contact = new Contact { Nome = contactDto.Nome, Telefone = contactDto.Telefone, Email = contactDto.Email };
+
+        // Verificar duplicação de e-mail ou telefone
+        var existingContact = await dbContext.Contacts
+            .FirstOrDefaultAsync(c => c.Email == contact.Email || c.Telefone == contact.Telefone);
+
+        if (existingContact != null)
         {
-            Name = contactDto.Name,
-            Phone = contactDto.Phone,
-            Email = contactDto.Email
-        };
+            Console.WriteLine($"Duplicate contact found for email: {contact.Email} or phone: {contact.Telefone}");
+            return; // Se duplicado, não salvar
+        }
 
         // Salvar o contato no banco de dados
         dbContext.Contacts.Add(contact);
@@ -129,7 +149,14 @@ app.Run();
 // DTO utilizado para desserialização
 public class ContactDto
 {
-    public string Name { get; set; }
-    public string Phone { get; set; }
+    [Required(ErrorMessage = "O campo Nome é obrigatório.")]
+    public string Nome { get; set; }
+
+    [Required(ErrorMessage = "O campo Telefone é obrigatório.")]
+    [Phone(ErrorMessage = "Formato de telefone inválido.")]
+    public string Telefone { get; set; }
+
+    [Required(ErrorMessage = "O campo Email é obrigatório.")]
+    [EmailAddress(ErrorMessage = "Formato de email inválido.")]
     public string Email { get; set; }
 }
