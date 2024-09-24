@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "ContactModels/1.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/ContactModels.dll": {}
-        },
-        "runtime": {
-          "lib/net8.0/ContactModels.dll": {}
-        }
-      },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
@@ -156,17 +147,6 @@
     }
   },
   "libraries": {
-    "ContactModels/1.0.1": {
-      "sha512": "HAd0Bl2IYHZz0b1bKFIjwMAyXmzuSjkUcHjO9KlMJgK37VEen/okAGF3962jjj6kKNCWliHRcEF3Sk571aT+wQ==",
-      "type": "package",
-      "path": "contactmodels/1.0.1",
-      "files": [
-        ".nupkg.metadata",
-        "contactmodels.1.0.1.nupkg.sha512",
-        "contactmodels.nuspec",
-        "lib/net8.0/ContactModels.dll"
-      ]
-    },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "sha512": "Ckb5EDBUNJdFWyajfXzUIMRkhf52fHZOQuuZg/oiu8y7zDCVwD0iHhew6MnThjHmevanpxL3f5ci2TtHQEN6bw==",
       "type": "package",
@@ -605,24 +585,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Oh20T\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\23941648837\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\ContactCreateUpdateService\\ContactCreateUpdateService.csproj",
+      "projectUniqueName": "C:\\Projeto\\ContactMicroservices\\ContactCreateUpdateService\\ContactCreateUpdateService.csproj",
       "projectName": "ContactCreateUpdateService",
-      "projectPath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\ContactCreateUpdateService\\ContactCreateUpdateService.csproj",
-      "packagesPath": "C:\\Users\\Oh20T\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\ContactCreateUpdateService\\obj\\",
+      "projectPath": "C:\\Projeto\\ContactMicroservices\\ContactCreateUpdateService\\ContactCreateUpdateService.csproj",
+      "packagesPath": "C:\\Users\\23941648837\\.nuget\\packages\\",
+      "outputPath": "C:\\Projeto\\ContactMicroservices\\ContactCreateUpdateService\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Oh20T\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\23941648837\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -630,8 +605,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/Oh20/index.json": {}
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -690,8 +665,19 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Não é possível encontrar o pacote ContactModels. Não existe nenhum pacote com esta ID nas origens: C:\\Program Files\\dotnet\\library-packs, Microsoft Visual Studio Offline Packages, nuget.org",
+      "libraryId": "ContactModels",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
