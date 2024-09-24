@@ -27,11 +27,11 @@ jobs:
 
     # Executa os testes para ContactCreateUpdateService
     - name: Run tests for ContactCreateUpdateService
-      run: dotnet test ./ContactCreateUpdate.Tests/ContactCreateUpdate.Tests.csproj --no-build --verbosity normal
+      run: dotnet test ./ContactCreateUpdateService.Tests/ContactCreateUpdateService.Tests.csproj --no-build --verbosity normal
 
     # Executa os testes para ContactQueryService
     - name: Run tests for ContactQueryService
-      run: dotnet test ./ContactQuery.Tests/ContactQuery.Tests.csproj --no-build --verbosity normal
+      run: dotnet test ./ContactQueryService.Tests/ContactQueryService.Tests.csproj --no-build --verbosity normal
 
     # Executa os testes para DBConsumerService
     - name: Run tests for DBConsumerService
