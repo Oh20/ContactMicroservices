@@ -37,6 +37,10 @@ jobs:
     - name: Run tests for DBConsumerService
       run: dotnet test ./DBConsumer.Tests/DBConsumer.Tests.csproj --no-build --verbosity normal
 
+    # Executa os testes para DatabaseConnectionTests
+    - name: Run tests for DatabaseConnectionTests
+      run: dotnet test ./DatabaseConnectionTests/DatabaseConnectionTests.csproj --no-build --verbosity normal
+
     # Publica os resultados dos testes
     - name: Upload Test Results
       if: always()
