@@ -30,7 +30,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
   test:
-    runs-on: self-hosted
+    runs-on: self-hosted #Rodando na maquina localmente.
     needs: build-and-deploy
 
     steps:
