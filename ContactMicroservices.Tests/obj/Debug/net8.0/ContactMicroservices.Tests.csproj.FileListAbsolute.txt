@@ -97,3 +97,4 @@ C:\Users\Oh20T\source\repos\ContactMicroservices\ContactMicroservices.Tests\obj\
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactMicroservices.Tests\obj\Debug\net8.0\ContactMicroservices.Tests.pdb
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactMicroservices.Tests\obj\Debug\net8.0\ContactMicroservices.Tests.genruntimeconfig.cache
 C:\Users\Oh20T\source\repos\ContactMicroservices\ContactMicroservices.Tests\obj\Debug\net8.0\ref\ContactMicroservices.Tests.dll
+C:\Users\Oh20T\source\repos\ContactMicroservices\ContactMicroservices.Tests\obj\Debug\net8.0\ContactMicroservices.Tests.sourcelink.json

@@ -21,7 +21,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapPost("/contacts", async ([FromBody] ContactDto contact, HttpContext httpContext) =>
+app.MapPost("/contatos", async ([FromBody] ContactDto contact, HttpContext httpContext) =>
 {
     // Validação de modelo
     var validationContext = new ValidationContext(contact, null, null);
@@ -56,6 +56,42 @@ app.MapPost("/contacts", async ([FromBody] ContactDto contact, HttpContext httpC
                          body: body);
 
     return Results.Ok("Contato direcionado à fila de Criação");
+});
+
+app.MapPut("/contacts/{name}", ([FromRoute] string name, [FromBody] ContactDto contact) =>
+{
+    // Validação dos campos do contato
+    if (string.IsNullOrWhiteSpace(contact.Nome) || string.IsNullOrWhiteSpace(contact.Telefone) || string.IsNullOrWhiteSpace(contact.Email))
+    {
+        return Results.BadRequest("Nome, Telefone ou Email não podem estar vazios.");
+    }
+
+    // Atualiza o nome do contato para garantir consistência
+    contact.Nome = name;
+
+    // Configuração do RabbitMQ
+    var factory = new ConnectionFactory() { HostName = "localhost" }; // Substitua pelo hostname do RabbitMQ
+    using var connection = factory.CreateConnection();
+    using var channel = connection.CreateModel();
+
+    // Declaração da fila de atualização
+    channel.QueueDeclare(queue: "contact_update_queue",
+                         durable: false,
+                         exclusive: false,
+                         autoDelete: false,
+                         arguments: null);
+
+    // Serialização do objeto de contato para JSON
+    var message = System.Text.Json.JsonSerializer.Serialize(contact);
+    var body = Encoding.UTF8.GetBytes(message);
+
+    // Publica a mensagem na fila
+    channel.BasicPublish(exchange: "",
+                         routingKey: "contact_update_queue",
+                         basicProperties: null,
+                         body: body);
+
+    return Results.Ok($"Contato com nome {name} enviado para a fila de atualização.");
 });
 
 app.UseHttpsRedirection();

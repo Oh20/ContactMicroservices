@@ -276,3 +276,4 @@ C:\Projeto\ContactMicroservices\DB_Consumer\obj\Debug\net8.0\refint\DB_Consumer.
 C:\Projeto\ContactMicroservices\DB_Consumer\obj\Debug\net8.0\DB_Consumer.pdb
 C:\Projeto\ContactMicroservices\DB_Consumer\obj\Debug\net8.0\DB_Consumer.genruntimeconfig.cache
 C:\Projeto\ContactMicroservices\DB_Consumer\obj\Debug\net8.0\ref\DB_Consumer.dll
+C:\Users\Oh20T\source\repos\ContactMicroservices\DB_Consumer\obj\Debug\net8.0\DB_Consumer.sourcelink.json

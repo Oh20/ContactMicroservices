@@ -19,7 +19,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapDelete("/contacts/{id}", (int id) =>
+app.MapDelete("/contatos/deleteID/{id}", (int id) =>
 {
     // Configuração do RabbitMQ
     var factory = new ConnectionFactory() { HostName = "localhost" };
@@ -43,7 +43,7 @@ app.MapDelete("/contacts/{id}", (int id) =>
                          basicProperties: null,
                          body: body);
 
-    return Results.Ok($"Contact with ID {id} sent to the queue for deletion.");
+    return Results.Ok($"Contato de ID: {id} Enviado para deleção!.");
 });
 
 app.UseHttpsRedirection();

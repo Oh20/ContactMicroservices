@@ -36,3 +36,4 @@ C:\Users\Oh20T\source\repos\ContactMicroservices\ContactCreateUpdateService\obj\
 C:\Projeto\ContactMicroservices\ContactCreateUpdateService\obj\Debug\net8.0\ContactCreateUpdateService.dll
 C:\Projeto\ContactMicroservices\ContactCreateUpdateService\obj\Debug\net8.0\refint\ContactCreateUpdateService.dll
 C:\Projeto\ContactMicroservices\ContactCreateUpdateService\obj\Debug\net8.0\ContactCreateUpdateService.pdb
+C:\Users\Oh20T\source\repos\ContactMicroservices\ContactCreateUpdateService\obj\Debug\net8.0\ContactCreateUpdateService.sourcelink.json

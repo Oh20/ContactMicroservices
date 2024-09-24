@@ -140,3 +140,4 @@ C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\n
 C:\Projeto\ContactMicroservices\ContactQueryService\obj\Debug\net8.0\ContactQueryService.dll
 C:\Projeto\ContactMicroservices\ContactQueryService\obj\Debug\net8.0\refint\ContactQueryService.dll
 C:\Projeto\ContactMicroservices\ContactQueryService\obj\Debug\net8.0\ContactQueryService.pdb
+C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\obj\Debug\net8.0\ContactQueryService.sourcelink.json

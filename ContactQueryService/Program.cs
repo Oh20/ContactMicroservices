@@ -24,14 +24,14 @@ if (app.Environment.IsDevelopment())
 }
 
 // Rota para buscar todos os contatos
-app.MapGet("/contacts", async (AppDbContext dbContext) =>
+app.MapGet("/contatos", async (AppDbContext dbContext) =>
 {
     var contacts = await dbContext.Contacts.ToListAsync();
     return Results.Ok(contacts);
 });
 
 // Rota para buscar um contato específico por ID
-app.MapGet("/contacts/{id}", async (int id, AppDbContext dbContext) =>
+app.MapGet("/contatos/{id}", async (int id, AppDbContext dbContext) =>
 {
     var contact = await dbContext.Contacts.FindAsync(id);
     if (contact == null)
@@ -39,6 +39,27 @@ app.MapGet("/contacts/{id}", async (int id, AppDbContext dbContext) =>
         return Results.NotFound("Contato não localizado");
     }
     return Results.Ok(contact);
+});
+
+app.MapGet("/contacts/by-ddd/{ddd}", async (string ddd, AppDbContext dbContext) =>
+{
+    // Validar se o DDD tem 2 dígitos e é numérico
+    if (ddd.Length != 2 || !ddd.All(char.IsDigit))
+    {
+        return Results.BadRequest("O DDD deve conter exatamente 2 dígitos numéricos.");
+    }
+
+    // Buscar contatos cujo telefone começa com o DDD
+    var contacts = await dbContext.Contacts
+        .Where(c => c.Telefone.StartsWith(ddd))
+        .ToListAsync();
+
+    if (!contacts.Any())
+    {
+        return Results.NotFound($"Nenhum contato encontrado com o DDD {ddd}.");
+    }
+
+    return Results.Ok(contacts);
 });
 
 app.UseHttpsRedirection();

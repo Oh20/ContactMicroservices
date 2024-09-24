@@ -48,7 +48,7 @@ consumer.Received += async (model, ea) =>
     var body = ea.Body.ToArray();
     var message = Encoding.UTF8.GetString(body);
 
-    Console.WriteLine($"Received message: {message}");
+    Console.WriteLine($"Mensagem recebida: {message}");
 
     // Desserializar a mensagem para o objeto ContactDto
     var contactDto = System.Text.Json.JsonSerializer.Deserialize<ContactDto>(message);
@@ -65,7 +65,7 @@ consumer.Received += async (model, ea) =>
         {
             foreach (var validationResult in validationResults)
             {
-                Console.WriteLine($"Validation failed: {validationResult.ErrorMessage}");
+                Console.WriteLine($"Falha na validação: {validationResult.ErrorMessage}");
             }
             return; // Se falhar, não salvar no banco
         }
@@ -82,7 +82,7 @@ consumer.Received += async (model, ea) =>
 
         if (existingContact != null)
         {
-            Console.WriteLine($"Duplicate contact found for email: {contact.Email} or phone: {contact.Telefone}");
+            Console.WriteLine($"Email {contact.Email} já existente ou Telefone {contact.Telefone} em uso");
             return; // Se duplicado, não salvar
         }
 
@@ -90,7 +90,7 @@ consumer.Received += async (model, ea) =>
         dbContext.Contacts.Add(contact);
         await dbContext.SaveChangesAsync();
 
-        Console.WriteLine("Contact saved to the database.");
+        Console.WriteLine($" {contact.Nome} Contato armazenado com sucesso.");
     }
 };
 
@@ -98,7 +98,7 @@ channel.BasicConsume(queue: "contact_queue",
                      autoAck: true,
                      consumer: consumer);
 
-Console.WriteLine("DBConsumer is waiting for messages.");
+Console.WriteLine("Aguardando novas solicitações de criação.");
 
 // Consumir fila de exclusão
 channel.QueueDeclare(queue: "delete_contact_queue",
@@ -113,7 +113,7 @@ deleteConsumer.Received += async (model, ea) =>
     var body = ea.Body.ToArray();
     var message = Encoding.UTF8.GetString(body);
 
-    Console.WriteLine($"Received delete message: {message}");
+    Console.WriteLine($"Mensagem recebida: {message}");
 
     if (int.TryParse(message, out var contactId))
     {
@@ -126,18 +126,66 @@ deleteConsumer.Received += async (model, ea) =>
             dbContext.Contacts.Remove(contact);
             await dbContext.SaveChangesAsync();
 
-            Console.WriteLine($"Contact with ID {contactId} deleted from the database.");
+            Console.WriteLine($"Contato de ID: {contactId} deletado da base de dados.");
         }
         else
         {
-            Console.WriteLine($"Contact with ID {contactId} not found.");
+            Console.WriteLine($"Contato de ID: {contactId} Não localizado.");
         }
     }
 };
 
 channel.BasicConsume(queue: "delete_contact_queue", autoAck: true, consumer: deleteConsumer);
 
-Console.WriteLine("DBConsumer is waiting for messages.");
+Console.WriteLine("Aguardando mensagens na fila de deleção.");
+
+// Consumir fila de atualização
+channel.QueueDeclare(queue: "contact_update_queue",
+                     durable: false,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+
+var updateConsumer = new EventingBasicConsumer(channel);
+updateConsumer.Received += async (model, ea) =>
+{
+    var body = ea.Body.ToArray();
+    var message = Encoding.UTF8.GetString(body);
+
+    Console.WriteLine($"Recebido mensagem de atualização: {message}");
+
+    // Desserializar a mensagem para o objeto ContactDto
+    var contactDto = System.Text.Json.JsonSerializer.Deserialize<ContactDto>(message);
+
+    if (contactDto != null)
+    {
+        using var scope = app.Services.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+        // Procurar o contato pelo nome no banco de dados
+        var existingContact = await dbContext.Contacts.FirstOrDefaultAsync(c => c.Nome == contactDto.Nome);
+
+        if (existingContact != null)
+        {
+            // Atualizar os dados do contato
+            existingContact.Telefone = contactDto.Telefone;
+            existingContact.Email = contactDto.Email;
+
+            // Salvar as alterações no banco de dados
+            await dbContext.SaveChangesAsync();
+
+            Console.WriteLine($"Contato de Nome {contactDto.Nome} atualizado com sucesso.");
+        }
+        else
+        {
+            Console.WriteLine($"Contato de Nome {contactDto.Nome} não localizado.");
+        }
+    }
+};
+
+channel.BasicConsume(queue: "contact_update_queue", autoAck: true, consumer: updateConsumer);
+
+Console.WriteLine("Aguardando por Mensagens de Atualização!.");
 
 app.UseHttpsRedirection();
 
