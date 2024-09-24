@@ -1,34 +1,52 @@
+name: Teste no Commit
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request: 
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
 jobs:
-  build-and-test:
+  build-and-deploy: 
+    name: Executando o job de Teste
     runs-on: ubuntu-latest
+    
+    steps: 
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo Testando o workflow.
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0'
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+  test:
+    runs-on: self-hosted
+    needs: build-and-deploy
 
     steps:
-    - name: Check out code
+    - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up .NET
+    - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '8.x' # Versão do .NET
+        dotnet-version: '8.0'
 
     - name: Install dependencies
       run: dotnet restore
 
-    # Executa os testes para o ContactCreateUpdateService
-    - name: Run tests for ContactCreateUpdateService
-      run: dotnet test ./ContactCreateUpdate.Tests/ContactCreateUpdate.Tests.csproj --no-build --verbosity normal
+    - name: Run tests
+      run: dotnet test --no-restore --verbosity normal
 
-    # Executa os testes para o ContactQueryService
-    - name: Run tests for ContactQueryService
-      run: dotnet test ./ContactQuery.Tests/ContactQuery.Tests.csproj --no-build --verbosity normal
-
-     # Executa os testes para o DB_consumer
-    - name: Run tests for DBConsumer
-      run: dotnet test ./DBConsumer.Tests/DBConsumer.Tests.csproj --no-build --verbosity normal
-
-    - name: Publish Test Results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: '**/TestResults/*.trx'
+    - name: Test database connection
+      run: dotnet test --filter "Category=DatabaseIntegration" --no-restore --verbosity normal
