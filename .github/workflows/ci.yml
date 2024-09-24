@@ -1,0 +1,34 @@
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.x' # Versão do .NET
+
+    - name: Install dependencies
+      run: dotnet restore
+
+    # Executa os testes para o ContactCreateUpdateService
+    - name: Run tests for ContactCreateUpdateService
+      run: dotnet test ./ContactCreateUpdate.Tests/ContactCreateUpdate.Tests.csproj --no-build --verbosity normal
+
+    # Executa os testes para o ContactQueryService
+    - name: Run tests for ContactQueryService
+      run: dotnet test ./ContactQuery.Tests/ContactQuery.Tests.csproj --no-build --verbosity normal
+
+     # Executa os testes para o DB_consumer
+    - name: Run tests for DBConsumer
+      run: dotnet test ./DBConsumer.Tests/DBConsumer.Tests.csproj --no-build --verbosity normal
+
+    - name: Publish Test Results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: '**/TestResults/*.trx'

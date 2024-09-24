@@ -4604,19 +4604,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\23941648837\\.nuget\\packages\\": {}
+    "C:\\Users\\Oh20T\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projeto\\ContactMicroservices\\ContactQueryService\\ContactQueryService.csproj",
+      "projectUniqueName": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\ContactQueryService\\ContactQueryService.csproj",
       "projectName": "ContactQueryService",
-      "projectPath": "C:\\Projeto\\ContactMicroservices\\ContactQueryService\\ContactQueryService.csproj",
-      "packagesPath": "C:\\Users\\23941648837\\.nuget\\packages\\",
-      "outputPath": "C:\\Projeto\\ContactMicroservices\\ContactQueryService\\obj\\",
+      "projectPath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\ContactQueryService\\ContactQueryService.csproj",
+      "packagesPath": "C:\\Users\\Oh20T\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\ContactQueryService\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\23941648837\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Oh20T\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4624,8 +4629,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/Oh20/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -4694,7 +4699,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
