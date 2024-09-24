@@ -1,52 +1,46 @@
-name: Teste no Commit
+name: .NET Test Pipeline
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request: 
-    branches: [ "master" ]
-
-  workflow_dispatch:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build-and-deploy: 
     name: Executando o job de Teste
     runs-on: ubuntu-latest
-    
-    steps: 
-      - uses: actions/checkout@v3
-      - name: Run a one-line script
-        run: echo Testando o workflow.
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '8.0'
-
-      - name: Install dependencies
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-
-  test:
-    runs-on: self-hosted #Rodando na maquina localmente
-    needs: build-and-deploy
 
     steps:
-    - name: Checkout repository
+    - name: Check out the repository
       uses: actions/checkout@v2
 
-    - name: Setup .NET
+    - name: Set up .NET SDK
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '8.0'
+        dotnet-version: '8.0'  # Ajuste para a versão do .NET que você está usando
 
-    - name: Install dependencies
+    - name: Restore dependencies
       run: dotnet restore
 
-    - name: Run tests
-      run: dotnet test --no-restore --verbosity normal
+    # Executa os testes para ContactCreateUpdateService
+    - name: Run tests for ContactCreateUpdateService
+      run: dotnet test ./ContactCreateUpdate.Tests/ContactCreateUpdate.Tests.csproj --no-build --verbosity normal
 
-    - name: Test database connection
-      run: dotnet test --filter "Category=DatabaseIntegration" --no-restore --verbosity normal
+    # Executa os testes para ContactQueryService
+    - name: Run tests for ContactQueryService
+      run: dotnet test ./ContactQuery.Tests/ContactQuery.Tests.csproj --no-build --verbosity normal
+
+    # Executa os testes para DBConsumerService
+    - name: Run tests for DBConsumerService
+      run: dotnet test ./DBConsumer.Tests/DBConsumer.Tests.csproj --no-build --verbosity normal
+
+    # Publica os resultados dos testes
+    - name: Upload Test Results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: '**/TestResults/*.trx'
