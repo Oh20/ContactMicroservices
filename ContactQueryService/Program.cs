@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,6 +62,11 @@ app.MapGet("/contacts/by-ddd/{ddd}", async (string ddd, AppDbContext dbContext) 
 
     return Results.Ok(contacts);
 });
+
+app.UseHttpMetrics();  // Coleta de métricas HTTP automáticas
+
+// Exponha o endpoint /metrics
+app.MapMetrics();
 
 app.UseHttpsRedirection();
 

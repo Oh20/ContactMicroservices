@@ -1,3 +1,4 @@
+using Prometheus;
 using RabbitMQ.Client;
 using System.Text;
 
@@ -45,6 +46,11 @@ app.MapDelete("/contatos/deleteID/{id}", (int id) =>
 
     return Results.Ok($"Contato de ID: {id} Enviado para deleção!.");
 });
+
+app.UseHttpMetrics();  // Coleta de métricas HTTP automáticas
+
+// Exponha o endpoint /metrics
+app.MapMetrics();
 
 app.UseHttpsRedirection();
 

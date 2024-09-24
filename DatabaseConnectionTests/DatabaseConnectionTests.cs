@@ -14,8 +14,8 @@ namespace DatabaseConnectionTests
 
             if (string.IsNullOrEmpty(connectionString))
             {
-                Console.WriteLine("Connection string is not set.");
-                throw new InvalidOperationException("Database connection string is not set in the environment variables.");
+                Console.WriteLine("Connection string não definida.");
+                throw new InvalidOperationException("Connection string não definida nas variaves de ambiente.");
             }
 
             Console.WriteLine("Connection string: " + connectionString);
@@ -23,7 +23,7 @@ namespace DatabaseConnectionTests
             using (var connection = new SqlConnection(connectionString))
             {
                 await connection.OpenAsync();
-                Assert.AreEqual(System.Data.ConnectionState.Open, connection.State, "Failed to open connection to the database.");
+                Assert.AreEqual(System.Data.ConnectionState.Open, connection.State, "Falha ao conectar-se com o Banco de Dados.");
             }
         }
     }

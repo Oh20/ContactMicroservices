@@ -3,6 +3,7 @@ using RabbitMQ.Client.Events;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -186,6 +187,11 @@ updateConsumer.Received += async (model, ea) =>
 channel.BasicConsume(queue: "contact_update_queue", autoAck: true, consumer: updateConsumer);
 
 Console.WriteLine("Aguardando por Mensagens de Atualização!.");
+
+app.UseHttpMetrics();  // Coleta de métricas HTTP automáticas
+
+// Exponha o endpoint /metrics
+app.MapMetrics();
 
 app.UseHttpsRedirection();
 

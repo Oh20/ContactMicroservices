@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Prometheus;
 using RabbitMQ.Client;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -79,6 +80,11 @@ app.MapPut("/contacts/{name}", (string name, ContactDto contact) =>
     return Results.Ok($"Contato com nome {name} enviado para a fila de atualização.");
 });
 
+// Adicione o middleware para expor métricas
+app.UseHttpMetrics();  // Coleta de métricas HTTP automáticas
+
+// Exponha o endpoint /metrics
+app.MapMetrics();
 
 app.UseHttpsRedirection();
 
