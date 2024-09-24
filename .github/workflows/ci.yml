@@ -9,9 +9,9 @@ on:
       - main
 
 jobs:
-  build-and-deploy: 
+  build-and-deploy:
     name: Executando o job de Teste
-    runs-on: self-hosted 
+    runs-on: self-hosted  # Altere para 'self-hosted'
 
     steps:
     - name: Check out the repository
@@ -47,4 +47,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: test-results
-        path: '**/TestResults/*.trx' 
+        path: '**/TestResults/*.trx'
