@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "6PH6cVfObhs=",
-  "success": false,
+  "dgSpecHash": "16+GIdtiHXs=",
+  "success": true,
   "projectFilePath": "C:\\Projeto\\ContactMicroservices\\ContactQueryService\\ContactQueryService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\23941648837\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
@@ -89,15 +89,5 @@
     "C:\\Users\\23941648837\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\23941648837\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Não é possível encontrar o pacote ContactModels. Não existe nenhum pacote com esta ID nas origens: C:\\Program Files\\dotnet\\library-packs, Microsoft Visual Studio Offline Packages, nuget.org",
-      "libraryId": "ContactModels",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

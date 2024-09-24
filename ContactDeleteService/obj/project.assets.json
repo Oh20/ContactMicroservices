@@ -578,7 +578,6 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "ContactModels >= 1.0.1",
       "Newtonsoft.Json >= 13.0.3",
       "RabbitMQ.Client >= 6.8.1",
       "Swashbuckle.AspNetCore >= 6.4.0"
@@ -629,10 +628,6 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "ContactModels": {
-            "target": "Package",
-            "version": "[1.0.1, )"
-          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
@@ -668,16 +663,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Não é possível encontrar o pacote ContactModels. Não existe nenhum pacote com esta ID nas origens: C:\\Program Files\\dotnet\\library-packs, Microsoft Visual Studio Offline Packages, nuget.org",
-      "libraryId": "ContactModels",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

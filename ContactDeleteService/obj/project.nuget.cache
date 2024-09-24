@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "eLriegzHdMk=",
-  "success": false,
+  "dgSpecHash": "qYCijY2OkL0=",
+  "success": true,
   "projectFilePath": "C:\\Projeto\\ContactMicroservices\\ContactDeleteService\\ContactDeleteService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\23941648837\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
@@ -15,15 +15,5 @@
     "C:\\Users\\23941648837\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
     "C:\\Users\\23941648837\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Não é possível encontrar o pacote ContactModels. Não existe nenhum pacote com esta ID nas origens: C:\\Program Files\\dotnet\\library-packs, Microsoft Visual Studio Offline Packages, nuget.org",
-      "libraryId": "ContactModels",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

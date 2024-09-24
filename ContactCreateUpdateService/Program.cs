@@ -58,41 +58,27 @@ app.MapPost("/contatos", async ([FromBody] ContactDto contact, HttpContext httpC
     return Results.Ok("Contato direcionado à fila de Criação");
 });
 
-app.MapPut("/contacts/{name}", ([FromRoute] string name, [FromBody] ContactDto contact) =>
+app.MapPut("/contacts/{name}", (string name, ContactDto contact) =>
 {
-    // Validação dos campos do contato
     if (string.IsNullOrWhiteSpace(contact.Nome) || string.IsNullOrWhiteSpace(contact.Telefone) || string.IsNullOrWhiteSpace(contact.Email))
     {
         return Results.BadRequest("Nome, Telefone ou Email não podem estar vazios.");
     }
 
-    // Atualiza o nome do contato para garantir consistência
     contact.Nome = name;
 
-    // Configuração do RabbitMQ
-    var factory = new ConnectionFactory() { HostName = "localhost" }; // Substitua pelo hostname do RabbitMQ
-    using var connection = factory.CreateConnection();
+    using var connection = new ConnectionFactory() { HostName = "localhost" }.CreateConnection();
     using var channel = connection.CreateModel();
 
-    // Declaração da fila de atualização
-    channel.QueueDeclare(queue: "contact_update_queue",
-                         durable: false,
-                         exclusive: false,
-                         autoDelete: false,
-                         arguments: null);
+    var rabbitMqChannel = new RabbitMqChannel(channel);
+    rabbitMqChannel.DeclareQueue("contact_update_queue");
 
-    // Serialização do objeto de contato para JSON
     var message = System.Text.Json.JsonSerializer.Serialize(contact);
-    var body = Encoding.UTF8.GetBytes(message);
-
-    // Publica a mensagem na fila
-    channel.BasicPublish(exchange: "",
-                         routingKey: "contact_update_queue",
-                         basicProperties: null,
-                         body: body);
+    rabbitMqChannel.Publish("contact_update_queue", message);
 
     return Results.Ok($"Contato com nome {name} enviado para a fila de atualização.");
 });
+
 
 app.UseHttpsRedirection();
 
