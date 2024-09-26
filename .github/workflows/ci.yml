@@ -11,7 +11,7 @@ on:
 jobs:
   build-and-deploy:
     name: Executando o job de Teste
-    runs-on: self-hosted  # Altere para 'self-hosted'
+    runs-on: ubuntu
 
     steps:
     - name: Check out the repository

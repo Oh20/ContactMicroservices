@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DBConsumer.Tests\\DBConsumer.Tests.csproj": {}
+    "C:\\Projeto\\ContactMicroservices\\DBConsumer.Tests\\DBConsumer.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DBConsumer.Tests\\DBConsumer.Tests.csproj": {
+    "C:\\Projeto\\ContactMicroservices\\DBConsumer.Tests\\DBConsumer.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DBConsumer.Tests\\DBConsumer.Tests.csproj",
+        "projectUniqueName": "C:\\Projeto\\ContactMicroservices\\DBConsumer.Tests\\DBConsumer.Tests.csproj",
         "projectName": "DBConsumer.Tests",
-        "projectPath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DBConsumer.Tests\\DBConsumer.Tests.csproj",
-        "packagesPath": "C:\\Users\\Oh20T\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DBConsumer.Tests\\obj\\",
+        "projectPath": "C:\\Projeto\\ContactMicroservices\\DBConsumer.Tests\\DBConsumer.Tests.csproj",
+        "packagesPath": "C:\\Users\\23941648837\\.nuget\\packages\\",
+        "outputPath": "C:\\Projeto\\ContactMicroservices\\DBConsumer.Tests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Oh20T\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\23941648837\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,15 +22,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/Oh20/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj": {
-                "projectPath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj"
+              "C:\\Projeto\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj": {
+                "projectPath": "C:\\Projeto\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj"
               }
             }
           }
@@ -99,25 +95,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj": {
+    "C:\\Projeto\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj",
+        "projectUniqueName": "C:\\Projeto\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj",
         "projectName": "DB_Consumer",
-        "projectPath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj",
-        "packagesPath": "C:\\Users\\Oh20T\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DB_Consumer\\obj\\",
+        "projectPath": "C:\\Projeto\\ContactMicroservices\\DB_Consumer\\DB_Consumer.csproj",
+        "packagesPath": "C:\\Users\\23941648837\\.nuget\\packages\\",
+        "outputPath": "C:\\Projeto\\ContactMicroservices\\DB_Consumer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Oh20T\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\23941648837\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -125,8 +117,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/Oh20/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -178,10 +170,6 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
-            },
-            "prometheus-net.AspNetCore": {
-              "target": "Package",
-              "version": "[8.2.1, )"
             }
           },
           "imports": [
@@ -203,7 +191,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
