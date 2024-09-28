@@ -11,11 +11,11 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("b1145bf6-a935-46d2-8d00-0cfcf05e3983")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("93372b1d-f195-4b1c-b195-1874bb3fe797")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ContactQueryService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a89419e8dada87cf2a407f626e577d281ac0dac1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c91a7a099c34ef4b1741aad69defed742b66d1de")]
 [assembly: System.Reflection.AssemblyProductAttribute("ContactQueryService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ContactQueryService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

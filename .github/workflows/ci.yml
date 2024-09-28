@@ -11,7 +11,7 @@ on:
 jobs:
   build-and-deploy:
     name: Executando o job de Teste
-    runs-on: ubuntu # Coment
+    runs-on: self-hosted 
 
     steps:
     - name: Check out the repository
@@ -20,7 +20,7 @@ jobs:
     - name: Set up .NET SDK
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '8.0'  # Ajuste para a versão do .NET que você está usando
+        dotnet-version: '8.0' 
 
     - name: Restore dependencies
       run: dotnet restore
