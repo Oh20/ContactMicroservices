@@ -68,3 +68,5 @@ C:\Projeto\ContactMicroservices\ContactCreateUpdateService\obj\Debug\net8.0\scop
 C:\Projeto\ContactMicroservices\ContactCreateUpdateService\obj\Debug\net8.0\ContactC.C4398AD4.Up2Date
 C:\Projeto\ContactMicroservices\ContactCreateUpdateService\obj\Debug\net8.0\ContactCreateUpdateService.genruntimeconfig.cache
 C:\Projeto\ContactMicroservices\ContactCreateUpdateService\obj\Debug\net8.0\ref\ContactCreateUpdateService.dll
+C:\Users\Oh20T\source\repos\ContactMicroservices\ContactCreateUpdateService\bin\Debug\net8.0\Prometheus.NetStandard.dll
+C:\Users\Oh20T\source\repos\ContactMicroservices\ContactCreateUpdateService\bin\Debug\net8.0\Prometheus.AspNetCore.dll

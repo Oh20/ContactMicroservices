@@ -35,7 +35,7 @@ app.MapPost("/contatos", async ([FromBody] ContactDto contact, HttpContext httpC
     }
 
     // Configuração do RabbitMQ
-    var factory = new ConnectionFactory() { HostName = "localhost" };
+    var factory = new ConnectionFactory() { HostName = "52.191.9.118" };
     using var connection = factory.CreateConnection();
     using var channel = connection.CreateModel();
 
@@ -68,7 +68,7 @@ app.MapPut("/contacts/{name}", (string name, ContactDto contact) =>
 
     contact.Nome = name;
 
-    using var connection = new ConnectionFactory() { HostName = "localhost" }.CreateConnection();
+    using var connection = new ConnectionFactory() { HostName = "52.191.9.118" }.CreateConnection();
     using var channel = connection.CreateModel();
 
     var rabbitMqChannel = new RabbitMqChannel(channel);

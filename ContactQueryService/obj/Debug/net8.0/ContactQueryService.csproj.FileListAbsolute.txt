@@ -277,3 +277,5 @@ C:\Projeto\ContactMicroservices\ContactQueryService\obj\Debug\net8.0\scopedcss\b
 C:\Projeto\ContactMicroservices\ContactQueryService\obj\Debug\net8.0\ContactQ.D2FFE1D7.Up2Date
 C:\Projeto\ContactMicroservices\ContactQueryService\obj\Debug\net8.0\ContactQueryService.genruntimeconfig.cache
 C:\Projeto\ContactMicroservices\ContactQueryService\obj\Debug\net8.0\ref\ContactQueryService.dll
+C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\net8.0\Prometheus.NetStandard.dll
+C:\Users\Oh20T\source\repos\ContactMicroservices\ContactQueryService\bin\Debug\net8.0\Prometheus.AspNetCore.dll

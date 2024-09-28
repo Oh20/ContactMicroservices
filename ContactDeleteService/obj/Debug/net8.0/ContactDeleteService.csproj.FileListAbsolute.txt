@@ -68,3 +68,5 @@ C:\Projeto\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\scopedcss\
 C:\Projeto\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\ContactD.F2C73C0D.Up2Date
 C:\Projeto\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\ContactDeleteService.genruntimeconfig.cache
 C:\Projeto\ContactMicroservices\ContactDeleteService\obj\Debug\net8.0\ref\ContactDeleteService.dll
+C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\net8.0\Prometheus.NetStandard.dll
+C:\Users\Oh20T\source\repos\ContactMicroservices\ContactDeleteService\bin\Debug\net8.0\Prometheus.AspNetCore.dll

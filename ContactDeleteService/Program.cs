@@ -23,7 +23,7 @@ if (app.Environment.IsDevelopment())
 app.MapDelete("/contatos/deleteID/{id}", (int id) =>
 {
     // Configuração do RabbitMQ
-    var factory = new ConnectionFactory() { HostName = "localhost" };
+    var factory = new ConnectionFactory() { HostName = "52.191.9.118" };
     using var connection = factory.CreateConnection();
     using var channel = connection.CreateModel();
 
