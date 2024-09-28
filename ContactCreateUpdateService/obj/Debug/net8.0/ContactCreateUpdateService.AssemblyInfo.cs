@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ContactCreateUpdateService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47dfb130a25dce811d26c71fa3a854fc6640a8ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a89419e8dada87cf2a407f626e577d281ac0dac1")]
 [assembly: System.Reflection.AssemblyProductAttribute("ContactCreateUpdateService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ContactCreateUpdateService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
