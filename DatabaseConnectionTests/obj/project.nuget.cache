@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zyTL7VJ4L2A=",
+  "dgSpecHash": "VRWFtfbLi8k=",
   "success": true,
   "projectFilePath": "C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DatabaseConnectionTests\\DatabaseConnectionTests.csproj",
   "expectedPackageFiles": [
@@ -26,12 +26,5 @@
     "C:\\Users\\Oh20T\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Oh20T\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache C:\\Users\\Oh20T\\source\\repos\\ContactMicroservices\\DatabaseConnectionTests\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: contact-create-service
+spec:
+  type: ClusterIP # Apenas acessível dentro do cluster
+  selector:
+    app: contact-create
+  ports:
+    - protocol: TCP
+      port: 80          # Porta do Service
+      targetPort: 8080  # Porta do container

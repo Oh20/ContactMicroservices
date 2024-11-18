@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact-query-deployment
+  labels:
+    app: contact-query
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: contact-query
+  template:
+    metadata:
+      labels:
+        app: contact-query
+    spec:
+      containers:
+        - name: contact-query-ms
+          image: oh20/contactmicroservice-query:v1
+          ports:
+            - containerPort: 8081
