@@ -22,6 +22,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+var rabbitMqHost = Environment.GetEnvironmentVariable("RABBITMQ_HOST") ?? "host.docker.internal";
+var rabbitMqPort = int.Parse(Environment.GetEnvironmentVariable("RABBITMQ_PORT") ?? "5672");
+
+
 app.MapPost("/contatos", async ([FromBody] ContactDto contact, HttpContext httpContext) =>
 {
     // Validação de modelo
@@ -37,8 +41,8 @@ app.MapPost("/contatos", async ([FromBody] ContactDto contact, HttpContext httpC
     // Configuração do RabbitMQ
     var factory = new ConnectionFactory() 
     {
-        HostName = "host.docker.internal",
-        Port = 5672
+        HostName = rabbitMqHost,
+        Port = rabbitMqPort
     };
     using var connection = factory.CreateConnection();
     using var channel = connection.CreateModel();
@@ -63,7 +67,7 @@ app.MapPost("/contatos", async ([FromBody] ContactDto contact, HttpContext httpC
     return Results.Ok("Contato direcionado à fila de Criação");
 });
 
-app.MapPut("/contacts/{name}", (string name, ContactDto contact) =>
+app.MapPut("/editcontatos/{name}", (string name, ContactDto contact) =>
 {
     if (string.IsNullOrWhiteSpace(contact.Nome) || string.IsNullOrWhiteSpace(contact.Telefone) || string.IsNullOrWhiteSpace(contact.Email))
     {
@@ -72,7 +76,7 @@ app.MapPut("/contacts/{name}", (string name, ContactDto contact) =>
 
     contact.Nome = name;
 
-    using var connection = new ConnectionFactory() { HostName = "host.docker.internal" }.CreateConnection();
+    using var connection = new ConnectionFactory() { HostName = rabbitMqHost }.CreateConnection();
     using var channel = connection.CreateModel();
 
     var rabbitMqChannel = new RabbitMqChannel(channel);

@@ -22,11 +22,14 @@ if (app.Environment.IsDevelopment())
 
 app.MapDelete("/contatos/deleteID/{id}", (int id) =>
 {
+    var rabbitMqHost = Environment.GetEnvironmentVariable("RABBITMQ_HOST") ?? "host.docker.internal";
+    var rabbitMqPort = int.Parse(Environment.GetEnvironmentVariable("RABBITMQ_PORT") ?? "5672");
+
     // Configuração do RabbitMQ
     var factory = new ConnectionFactory() 
     {   
-        HostName = "host.docker.internal",
-        Port = 5672
+        HostName = rabbitMqHost,
+        Port = rabbitMqPort
     };
     using var connection = factory.CreateConnection();
     using var channel = connection.CreateModel();

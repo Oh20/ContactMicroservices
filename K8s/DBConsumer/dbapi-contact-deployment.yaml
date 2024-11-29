@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact-dbapi-deployment
+  labels:
+    app: contact-dbapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contact-dbapi
+  template:
+    metadata:
+      labels:
+        app: contact-dbapi
+    spec:
+      containers:
+        - name: contact-dbapi-ms
+          image: oh20/contactmicroservice-dbconsumer:1.0
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: rabbitmq-connection-api

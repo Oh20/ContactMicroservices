@@ -16,6 +16,9 @@ spec:
     spec:
       containers:
         - name: contact-create-ms
-          image: oh20/contactmicroservice-create:v1
+          image: oh20/contactmicroservice-create:2.0
           ports:
             - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: rabbitmq-connection

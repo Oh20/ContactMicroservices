@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq-connection
+data:
+  RABBITMQ_HOST: rabbitmq-service
+  RABBITMQ_PORT: "5672"

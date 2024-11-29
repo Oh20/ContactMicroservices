@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact-delete-deployment
+  labels:
+    app: contact-delete
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: contact-delete
+  template:
+    metadata:
+      labels:
+        app: contact-delete
+    spec:
+      containers:
+        - name: contact-delete-ms
+          image: oh20/contactmicroservice-delete:1.0
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: rabbitmq-connection
