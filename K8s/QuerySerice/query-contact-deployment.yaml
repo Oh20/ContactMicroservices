@@ -16,6 +16,13 @@ spec:
     spec:
       containers:
         - name: contact-query-ms
-          image: oh20/contactmicroservice-query:v1
+          image: oh20/contactmicroservice-query:latest
           ports:
             - containerPort: 8080
+          volumeMounts:
+          - name: shared-storage
+            mountPath: /usr/share/volume
+      volumes:
+      - name: shared-storage
+        persistentVolumeClaim:
+          claimName: shared-pvc

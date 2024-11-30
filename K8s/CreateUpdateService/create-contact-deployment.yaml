@@ -16,9 +16,16 @@ spec:
     spec:
       containers:
         - name: contact-create-ms
-          image: oh20/contactmicroservice-create:2.0
+          image: oh20/contactmicroservice-create:latest
           ports:
             - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: rabbitmq-connection
+          volumeMounts:
+          - name: shared-storage
+            mountPath: /usr/share/volume
+      volumes:
+      - name: shared-storage
+        persistentVolumeClaim:
+          claimName: shared-pvc

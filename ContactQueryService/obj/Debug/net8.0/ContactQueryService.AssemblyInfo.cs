@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ContactQueryService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e96a0258186fab405f4af518d79d58bfb99320f3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ceb734b16a3f55c44c8b539891711d9fc50dcff")]
 [assembly: System.Reflection.AssemblyProductAttribute("ContactQueryService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ContactQueryService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
