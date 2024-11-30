@@ -1,4 +1,4 @@
-name: .NET Test Pipeline
+name: .NET CI/CD Pipeline
 
 on:
   push:
@@ -10,36 +10,75 @@ on:
 
 jobs:
   build-and-deploy:
-    name: Executando o job de Teste
-    runs-on: self-hosted # O runner tem de ser proprio, devido necessidade de liberação no banco por endereço de IP
+    name: Testar, Construir e Publicar Imagens Docker
+    runs-on: self-hosted # O runner permanece self-hosted
 
     steps:
+    # Etapa 1: Checkout do repositório
     - name: Check out the repository
       uses: actions/checkout@v2
 
+    # Etapa 2: Restaurar dependências do .NET
     - name: Restore dependencies
       run: dotnet restore
 
-    # Executa os testes para ContactCreateUpdateService
+    # Etapa 3: Executar testes para ContactCreateUpdateService
     - name: Run tests for ContactCreateUpdateService
       run: dotnet test ./ContactCreateUpdateService.Tests/ContactCreateUpdateService.Tests.csproj --no-build --verbosity normal
 
-    # Executa os testes para ContactQueryService
+    # Etapa 4: Executar testes para ContactQueryService
     - name: Run tests for ContactQueryService
       run: dotnet test ./ContactQueryService.Tests/ContactQueryService.Tests.csproj --no-build --verbosity normal
 
-    # Executa os testes para DBConsumerService
+    # Etapa 5: Executar testes para DBConsumerService
     - name: Run tests for DBConsumerService
       run: dotnet test ./DBConsumer.Tests/DBConsumer.Tests.csproj --no-build --verbosity normal
 
-    # Executa os testes para DatabaseConnectionTests
+    # Etapa 6: Executar testes para DatabaseConnectionTests
     - name: Run tests for DatabaseConnectionTests
       run: dotnet test ./DatabaseConnectionTests/DatabaseConnectionTests.csproj --no-build --verbosity normal
 
-    # Publica os resultados dos testes
+    # Etapa 7: Publicar resultados dos testes
     - name: Upload Test Results
       if: always()
       uses: actions/upload-artifact@v3
       with:
         name: test-results
         path: '**/TestResults/*.trx'
+
+    # Etapa 8: Configurar Docker
+    - name: Set up Docker
+      uses: docker/setup-buildx-action@v2
+
+    # Etapa 9: Fazer login no Docker Hub
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+    # Etapa 10: Construir e enviar imagem para ContactCreateUpdateService
+    - name: Build and push Docker image for ContactCreateUpdateService
+      run: |
+        docker build -t oh20/contactmicroservice-create:${{ github.sha }} -f ./contactCreateDockerfile .
+        docker tag oh20/contactmicroservice-create:${{ github.sha }} oh20/contactmicroservice-create:latest
+        docker push oh20/contactmicroservice-create:${{ github.sha }}
+        docker push oh20/contactmicroservice-create:latest
+    # Etapa 11: Construir e enviar imagem para ContactQueryService
+    - name: Build and push Docker image for ContactQueryService
+      run: |
+        docker build -t oh20/contactmicroservice-query:${{ github.sha }} -f ./contactQueryDockerfile .
+        docker tag oh20/contactmicroservice-query:${{ github.sha }} oh20/contactmicroservice-query:latest
+        docker push oh20/contactmicroservice-query:${{ github.sha }}
+        docker push oh20/contactmicroservice-query:latest
+    # Etapa 12: Construir e enviar imagem para DBConsumerService
+    - name: Build and push Docker image for DBConsumerService
+      run: |
+        docker build -t oh20/contactmicroservice-dbconsumer:${{ github.sha }} -f ./dbConsumerDockerfile .
+        docker tag oh20/contactmicroservice-dbconsumer:${{ github.sha }} oh20/contactmicroservice-dbconsumer:latest
+        docker push oh20/contactmicroservice-dbconsumer:${{ github.sha }}
+        docker push oh20/contactmicroservice-dbconsumer
+    # Etapa 13: Construir e enviar imagem para DatabaseConnection
+    - name: Build and push Docker image for ContactDeleteService
+      run: |
+        docker build -t oh20/contactmicroservice-delete:${{ github.sha }} -f ./contactDeleteDockerfile .
+        docker tag oh20/contactmicroservice-delete:${{ github.sha }} oh20/contactmicroservice-delete:latest
+        docker push oh20/contactmicroservice-delete:${{ github.sha }}
+        docker push oh20/contactmicroservice-delete:latest
